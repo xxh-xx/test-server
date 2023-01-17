@@ -60,7 +60,16 @@ const plugins = [
       order_placed_template: process.env.SENDGRID_ORDER_PLACED_ID,
       order_canceled_template: process.env.SENDGRID_ORDER_CANCELED_ID,
     },
-  }
+  },
+  {
+    resolve: `medusa-file-minio`,
+    options: {
+        endpoint: process.env.MINIO_ENDPOINT,
+        bucket: process.env.MINIO_BUCKET,
+        access_key_id: process.env.MINIO_ACCESS_KEY,
+        secret_access_key: process.env.MINIO_SECRET_KEY,
+    },
+  },
 ];
 
 module.exports = {
